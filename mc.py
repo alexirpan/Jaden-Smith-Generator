@@ -16,10 +16,13 @@ def init_corpus():
 import string
 
 def clean(line):
-    # normalize case
-    # strip out urls and punctuation
-    # TODO exception for hashtags and @ for twitter users?
-    return ''.join(ch for ch in line.lower() if ch not in string.punctuation)
+    # strip out urls
+    words = ' '.join(word for word in line.split() if word[:4] != 'http')
+    # replace punctuation with spaces (deals with case where he uses .... as separators)
+    # normalize case as well along the way
+    trans = string.maketrans(string.punctuation, ' ' * len(string.punctuation))
+    nopunct = string.translate(line.lower(), trans)
+    return words
 
 START = ''
 END = None
