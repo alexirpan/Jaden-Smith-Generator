@@ -3,6 +3,7 @@ import mc
 app = Flask(__name__)
 
 corpus = mc.init_corpus()
+lines = []
 try:
     f = open('tweet_texts', 'r')
     lines = f.readlines()
@@ -15,6 +16,8 @@ for line in lines[1:]:
     
 @app.route("/")
 def hello():
+    if not lines:
+        return 'lines was never set'
     sentence = [mc.START]
     while sentence[-1] != mc.END:
         sentence.append(mc.sample_from_counts(corpus[sentence[-1]]))
