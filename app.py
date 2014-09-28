@@ -29,12 +29,8 @@ except:
     
 @app.route("/")
 def hello():
-    sentence = [mc.START]
-    while sentence[-1] != mc.END:
-        sentence.append(mc.sample_from_counts(corpus[sentence[-1]]))
-    message = ' '.join(word.capitalize() for word in sentence[1:-1])
-    
-    if message == ' ':
+    message = ' '
+    while message == ' ':
         sentence = [mc.START]
         while sentence[-1] != mc.END:
             sentence.append(mc.sample_from_counts(corpus[sentence[-1]]))
