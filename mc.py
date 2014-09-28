@@ -3,7 +3,7 @@ from collections import defaultdict
 
 def sample_from_counts(counts):
     total = sum(counts.values())
-    s = random.randint(1, total)
+    s = random.uniform(0, total)
     for word, count in counts.items():
         if s <= count:
             return word
