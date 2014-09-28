@@ -3,9 +3,12 @@ import mc
 app = Flask(__name__)
 
 corpus = mc.init_corpus()
-f = open('tweet_texts', 'r')
-lines = f.readlines()
-f.close()
+try:
+    f = open('tweet_texts', 'r')
+    lines = f.readlines()
+    f.close()
+except:
+    print 'could not open file'
 
 for line in lines[1:]:
     mc.update_corpus(corpus, line)
