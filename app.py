@@ -20,9 +20,9 @@ for line in lines[1:]:
 try:
     f = open('AV1611Bible.txt', 'r')
     for line in f:
-        # a weight that roughly corresponds to 25% of words from king james bible
+        # a weight that roughly corresponds to ~37.5% of words from king james bible
         # (assuming word distributions are uniform between the two, This isn't true)
-        mc.update_corpus(corpus, line, weight=0.007)
+        mc.update_corpus(corpus, line, weight=0.01)
     f.close()
 except:
     print 'could not open bible'
