@@ -1,0 +1,12 @@
+h2.header {
+    font-family: Arial;
+    text-align: center;
+}
+
+.message {
+    background: #f9f9f9;
+    padding: 0.5em 10px;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
