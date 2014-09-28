@@ -17,5 +17,8 @@ def hello():
         sentence.append(mc.sample_from_counts(corpus[sentence[-1]]))
     return ' '.join(word.capitalize() for word in sentence[1:-1])
 
+import os
+port = int(os.environ.get('PORT', 5000))
+    
 if __name__ == '__main__':
-    app.run()
+    app.run(port=port)
