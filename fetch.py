@@ -5,8 +5,8 @@ Initializes tweet list
 
 import requests
 import base64
-APP_KEY='cZObNB56DaNJpNHNiMPFzfCjI'
-APP_SECRET='EjnsuMLQ1fKP6WVlb6KGPxnvoRKMsc6UkHjfi7ubbXGrRUl9Nd'
+APP_KEY='SECRET'
+APP_SECRET='ALSO_SECRET'
 
 headers = {'Authorization': 'Basic ' + base64.b64encode('%s:%s' % (APP_KEY, APP_SECRET)),
            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
