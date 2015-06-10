@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 import mc
 app = Flask(__name__)
 
@@ -37,6 +37,10 @@ def hello():
         message = ' '.join(word.capitalize() for word in sentence[1:-1])
 
     return render_template('index.html', message=message)
+
+@app.route("/sailthru")
+def sailthru():
+    return request.json
 
 import os
 debug = True
