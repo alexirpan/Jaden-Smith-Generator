@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request
 import mc
+import sys
 app = Flask(__name__)
 
 corpus = mc.init_corpus()
@@ -42,6 +43,7 @@ def hello():
 def sailthru():
     print 'REQUEST DATA', request.data
     print 'REQUEST JSON', request.json
+    sys.stdout.flush()
 
 import os
 debug = False
