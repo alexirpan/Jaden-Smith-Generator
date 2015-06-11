@@ -31,6 +31,8 @@ except:
 @app.route("/")
 def hello():
     print 'These are going through'
+    import logging
+    logging.info('please work')
     sys.stdout.flush()
     message = ' '
     while message == ' ':
@@ -44,6 +46,8 @@ def hello():
 @app.route("/sailthru")
 def sailthru():
     # WORK ALREADY
+    import logging
+    logging.info('foobar')
     print 'REQUEST OBJ', request
     sys.stdout.flush()
     print 'REQUEST DATA', request.data
