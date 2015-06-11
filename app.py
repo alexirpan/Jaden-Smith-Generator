@@ -30,6 +30,8 @@ except:
     
 @app.route("/")
 def hello():
+    print 'These are going through'
+    sys.stdout.flush()
     message = ' '
     while message == ' ':
         sentence = [mc.START]
@@ -41,7 +43,11 @@ def hello():
 
 @app.route("/sailthru")
 def sailthru():
+    # WORK ALREADY
+    print 'REQUEST OBJ', request
+    sys.stdout.flush()
     print 'REQUEST DATA', request.data
+    sys.stdout.flush()
     print 'REQUEST JSON', request.json
     sys.stdout.flush()
 
