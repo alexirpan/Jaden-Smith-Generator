@@ -40,7 +40,8 @@ def hello():
 
 @app.route("/sailthru")
 def sailthru():
-    return request.json
+    print 'REQUEST DATA', request.data
+    print 'REQUEST JSON', request.json
 
 import os
 debug = False
