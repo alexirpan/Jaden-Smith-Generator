@@ -5,17 +5,19 @@ Initializes tweet list
 
 import requests
 import base64
-APP_KEY='SECRET'
-APP_SECRET='ALSO_SECRET'
+APP_KEY='XWGdqo636ssd5BU7vhm6V2PM1'
+APP_SECRET='pwZjGf2tSzqcge0s5YVu4g0aqeDmjNqeFqTR6OKTGTkIPWUkSj'
 
 headers = {'Authorization': 'Basic ' + base64.b64encode('%s:%s' % (APP_KEY, APP_SECRET)),
            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
-           
+
 token_response = requests.post(
     'https://api.twitter.com/oauth2/token',
     data='grant_type=client_credentials',
     headers=headers
 )
+
+print token_response.json()
 
 access_token = token_response.json()['access_token']
 url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?count=200&trim_user=true&exclude_replies=true&include_rts=false&user_id=262794965&screen_name=officialjaden'
