@@ -1,4 +1,5 @@
 import random
+import string
 from collections import defaultdict
 
 def sample_from_counts(counts):
@@ -12,8 +13,6 @@ def sample_from_counts(counts):
 
 def init_corpus():
     return defaultdict(lambda: defaultdict(lambda: 0))
-
-import string
 
 def clean(line):
     # strip out urls
@@ -33,3 +32,13 @@ def update_corpus(corpus, line, weight=1):
     words = [START] + clean(line).split() + [END]
     for i in xrange(len(words) - 1):
         corpus[words[i]][words[i+1]] += weight
+
+def clean_tweets():
+    with open('tweet_texts') as f:
+        with open('cleaned_tweets', 'w') as f2:
+            lines = f.readlines()
+            for line in lines:
+                print >> f2, clean(line.strip())
+
+if __name__ == '__main__':
+    clean_tweets()
